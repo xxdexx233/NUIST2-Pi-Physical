@@ -14,9 +14,9 @@ def quiz():
 		"3.WHat is the only mammal capable of flight?: a. Bat, b. Squirrel, c. Dolphin\n"
 	]
 	answers = [
-		"Blue Whale",
-		"HummingBird",
-		"Bat"
+		"blue whale",
+		"hummingbird",
+		"bat"
 	]
 	score = 0
 
@@ -27,7 +27,7 @@ def quiz():
 			print("Correct!")
 			score += 1
 			GPIO.setup(18,GPIO.OUT)
-			GPIO.output(18,GPIO,HIGH)
+			GPIO.output(18,GPIO.HIGH)
 			time.sleep(1)
 			GPIO.output(18,GPIO.LOW)
 		else:
