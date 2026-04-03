@@ -2,16 +2,16 @@ import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-#NUISTvQuiz Game in Python
+#NUIST Quiz Game in Python
 def quiz():
 	print("Welcome to the Animal Quiz!")
 	print("Answer the following questions:")
 
 #Questions and Answers
 	questions = [
-		"1.What is the largest animal on Earth?: a. Blue Whale, b. Mouse, c. Cat",
-		"2.Which bird can fly backwards?: a. Cuckoo, b. Eagle, c. Hummingbird",
-		"3.WHat is the only mammal capable of flight?: a. Bat, b. Squirrel, c. Dolphin"
+		"1.What is the largest animal on Earth?: a. Blue Whale, b. Mouse, c. Cat\n",
+		"2.Which bird can fly backwards?: a. Cuckoo, b. Eagle, c. Hummingbird\n",
+		"3.WHat is the only mammal capable of flight?: a. Bat, b. Squirrel, c. Dolphin\n"
 	]
 	answers = [
 		"Blue Whale",
@@ -22,8 +22,8 @@ def quiz():
 
 # Ask questions
 	for i in range(len(questions)):
-		user_answer = input(questions[i]).strip.lower()
-		if user_answer == answer[i]:
+		user_answer = input(questions[i]).strip().lower()
+		if user_answer == answers[i]:
 			print("Correct!")
 			score += 1
 			GPIO.setup(18,GPIO.OUT)
@@ -32,10 +32,10 @@ def quiz():
 			GPIO.output(18,GPIO.LOW)
 		else:
 			print("Incorrect!")
-			GPIO.setup(23,GPIO.OUT)
-                        GPIO.output(23,GPIO,HIGH)
-                        time.sleep(1)
-                        GPIO.output(23,GPIO.LOW)
+			GPIO.setup(17,GPIO.OUT)
+			GPIO.output(17,GPIO.HIGH)
+			time.sleep(1)
+			GPIO.output(17,GPIO.LOW)
 
 #Provide final score
 	print("\nQuiz completed!")
